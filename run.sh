@@ -1,5 +1,5 @@
 cd $WERCKER_ROOT
-if [ "$WERCKER_JSHINT_OPTION_FORCERUN" = "true" ] ; then
+if [ "$WERCKER_JSHINT_FORCERUN" = "true" ] ; then
         echo "forcerun is true"
 else
 	if [ -e ".jshintignore" ] || [ -e ".jshintrc" ] ; then
