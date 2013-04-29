@@ -1,9 +1,12 @@
 cd $WERCKER_ROOT
-if [ -e ".jshintignore" ] || [ -e ".jshintrc" ] ; then
-	echo ".jshintrc or .jshintignore found"
+if [ "$WERCKER_JSHINT_OPTION_FORCERUN" = "true" ] ; then
+        echo "forcerun is true"
 else
-	echo ".jshintrc or .jshintignore not found, skipping step"
-	exit 0
+	if [ -e ".jshintignore" ] || [ -e ".jshintrc" ] ; then
+		echo ".jshintrc or .jshintignore found"
+	else
+		echo ".jshintrc or .jshintignore not found, skipping step"
+		exit 0
+	fi
 fi
-
 jshint --jslint-reporter .
